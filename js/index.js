@@ -4,7 +4,7 @@
   This code is unfinished. You will need to study it to figure out what it does. Then you will need to use this and
   your own code, to finish the app. 
   
-  The tasks you need to do are below.
+  The tasks you need to do are below
 
     TASKS TODO:
       1. Calculate the score as the total of the number of correct answers
