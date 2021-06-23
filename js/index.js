@@ -24,6 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
   start.addEventListener('click', function (e) {
     document.querySelector('#quizBlock').style.display = 'block';
     start.style.display = 'none';
+   
   });
   // quizArray QUESTIONS & ANSWERS
   // q = QUESTION, o = OPTIONS, a = CORRECT ANSWER
@@ -44,6 +45,14 @@ window.addEventListener('DOMContentLoaded', () => {
       o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
       a: 1,
     },
+
+      q: 'In which country is the city Melbourne located',
+      o: ['China', 'Malaysia', 'Australia', 'England'],
+      a: 3,
+
+      q: 'Which team won the 2020 NBA Championship',
+      o: ['Los Angeles Lakers', 'Cleveland Cavaliers', 'Miami Heat', 'Brooklyn Nets'],
+      a: 1,
   ];
 
   // function to Display the quiz questions and answers from the object
@@ -60,6 +69,11 @@ window.addEventListener('DOMContentLoaded', () => {
                     </ul>
                     <div>&nbsp;</div>`;
       quizWrap.innerHTML = quizDisplay;
+      const form = document.querySelector('.quiz');
+const result = document.querySelector('.result');
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
     });
   };
 
@@ -86,5 +100,19 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   // call the displayQuiz function
+  
   displayQuiz();
-});
+  var count = 15;
+var interval = setInterval(function(){
+  document.getElementById('count').innerHTML=count;
+  count--;
+  if (count === 0){
+    clearInterval(interval);
+    document.getElementById('count').innerHTML='Done';
+    // or...
+    alert("You're out of time!");
+  }
+}, 1000);
+}
+<input type="button" value="Refresh Button" onClick="window.location.reload(false)"></input>
+  );
