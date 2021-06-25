@@ -21,11 +21,11 @@
 
 window.addEventListener('DOMContentLoaded', () => {
   const start = document.querySelector('#start');
-  start.addEventListener('click', function (e) {
+  start.addEventListener('click', function  (e) {
     document.querySelector('#quizBlock').style.display = 'block';
-    start.style.display = 'none';
+    start.style.display = 'none';})
    
-  });
+ 
   // quizArray QUESTIONS & ANSWERS
   // q = QUESTION, o = OPTIONS, a = CORRECT ANSWER
   // Basic ideas from https://code-boxx.com/simple-javascript-quiz/
@@ -46,13 +46,17 @@ window.addEventListener('DOMContentLoaded', () => {
       a: 1,
     },
 
+    {
       q: 'In which country is the city Melbourne located',
       o: ['China', 'Malaysia', 'Australia', 'England'],
       a: 3,
+    },
 
+    {
       q: 'Which team won the 2020 NBA Championship',
       o: ['Los Angeles Lakers', 'Cleveland Cavaliers', 'Miami Heat', 'Brooklyn Nets'],
       a: 1,
+    }
   ];
 
   // function to Display the quiz questions and answers from the object
@@ -67,15 +71,18 @@ window.addEventListener('DOMContentLoaded', () => {
                     <li class="list-group-item"  id="li_${index}_2"><input type="radio" name="radio${index}" id="radio_${index}_2"> ${quizItem.o[2]}</li>
                     <li class="list-group-item"  id="li_${index}_3"><input type="radio" name="radio${index}" id="radio_${index}_3"> ${quizItem.o[3]}</li>
                     </ul>
-                    <div>&nbsp;</div>`;
+                    <div>&nbsp;</div>`;})
       quizWrap.innerHTML = quizDisplay;
       const form = document.querySelector('.quiz');
 const result = document.querySelector('.result');
+document.querySelector('#start')}
 
-form.addEventListener('submit', e => {
-  e.preventDefault();
-    });
-  };
+      
+
+// form.addEventListener('submit', e => {
+//   e.preventDefault();
+//     });
+  
 
   // Calculate the score
   const calculateScore = () => {
@@ -93,26 +100,39 @@ form.addEventListener('submit', e => {
         }
 
         if (radioElement.checked) {
-          // code for task 1 goes here
+           
         }
       }
     });
   };
 
   // call the displayQuiz function
-  
-  displayQuiz();
+   displayQuiz();
+
+    const btnSubmit = document.querySelector('#btnSubmit');
+    const btnReset = document.querySelector('#btnReset');
+    const score = document.querySelector('#score');
+
   var count = 15;
 var interval = setInterval(function(){
-  document.getElementById('count').innerHTML=count;
+  document.getElementById('score').innerHTML=count;
   count--;
   if (count === 0){
     clearInterval(interval);
-    document.getElementById('count').innerHTML='Done';
+    document.getElementById('score').innerHTML='Done';
     // or...
     alert("You're out of time!");
   }
-}, 1000);
-}
-<input type="button" value="Refresh Button" onClick="window.location.reload(false)"></input>
-  );
+}, 1000); 
+
+//task 4: Reload the page when the reset button is clicked
+btnReset.addEventListener('click', (event)=>{
+  location.reload();
+  return false;
+  
+});
+
+
+
+    });
+  
